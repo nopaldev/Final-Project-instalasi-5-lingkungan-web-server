@@ -26,7 +26,7 @@ menggunakan command :
 
 > ssh user@ip_address
 
-## Install NginX
+# Install NginX
 ![download](https://github.com/dword32bit/SysAdmin/assets/114817148/e3318239-a3a4-449d-bd86-79edc65c4b7f)
 
 Saya menggunakan NginX untuk mengelola Web saya yang berada dalam dua sistem operasi yang terpisah dengan server
@@ -39,16 +39,44 @@ sudo apt install nginx
 sudo systemctl status nginx
 ```
 ![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/status_nginx.png)
-
+### Melihat paket Nginx
+```bash
+sudo ufw app list
+```
+### Mengijinkan http Nginx
+```bash
+sudo ufw allow 'Nginx HTTP'
+```
+### cek ufw status
+```bash
+sudo ufw status
+```
+### seting server blocks
+```bash
+sudo mkdir -p /var/www/naufalserver/html
+sudo chown -R $USER:$USER /var/www/naufalserver/html
+sudo chmod -R 755 /var/www/naufalserver
+```
+#sample html
+```bash
+<html>
+    <head>
+        <title>Welcome to your_domain!</title>
+    </head>
+    <body>
+        <h1>Success!  The your_domain server block is working!</h1>
+    </body>
+</html>
+```
 ### Konfigurasi NginX
 untuk melakukan konfigurasi menggunakan nano
 ```bash
-sudo nano /etc/nginx/sites-available/scrsrv.my.id.conf
+sudo nano /etc/nginx/sites-available/naufalserver
 ```
 ```bash
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
+        listen 80;
+        listen [::]:80;
 
         # SSL configuration
         #
@@ -66,7 +94,7 @@ server {
         #
         # include snippets/snakeoil.conf;
 
-        root /var/www/html;
+        root /var/www/naufalserer/html;
 
         # Add index.php to the list if you are using PHP
          index index.html index.htm index.nginx-debian.html;
@@ -97,73 +125,28 @@ server {
         }
 
 ```
-# Installasi FTP server
+#menjalankan file dengan membuat link di sites-enabled
 ```bash
-sudo apt install vsftpd
+sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
 ```
-
-# Menyalin file konfigurasi sebagai backup
+#edit kofigurasi pada /etc/nginx/nginx.conf
 ```bash
-sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
+sudo nano /etc/nginx/nginx.conf
 ```
-
-#Izinkan port berkaitan dengan ftp, Kemudian dengan FTP kirimkan file-file pendukung web server
-sudo ufw allow 20,21,990/tcp
-
-#Konfigurasi ip address pada masing-masing sistem operasi web server
-#Sistem operasi pertama
-nano /etc/netplan/00-installer-config.yaml
-network:
-  ethernets:
-    enp0s3:
-      dhcp4: no
-      addresses: [192.168.1.20/24]
-      gateway: 192.168.1.1
-  version: 2
-
-#Sistem operasi kedua
-nano /etc/netplan/00-installer-config.yaml
-network:
-  ethernets:
-    enp0s3:
-      dhcp4: no
-      addresses: [192.168.1.30/24]
-      gateway: 192.168.1.1
-  version: 2
-
-#Setelah semua konfigurasi selesai matikan kembali port yang tidak digunakan
-#Hapus semua port allow ufw, dan hanya server yang dapat mengakses web server
-ufw allow deny 80/tcp
-ufw allow from 192.168.1.5 to any port www
-```
-![download](https://github.com/Xzhacts-Crew/scrserv/blob/main/webserv.jpg)
-
-## Konfigurasi iptables
-Disini kita menggunakan iptables untuk drop DDos
-berikut adalah beberapa alasan kita menggunakan iptables
-- menolak paket-paket TCP yang memiliki semua flag TCP (ACK, URG, PSH, RST, SYN, dan FIN) diatur ke "NONE" atau tidak ada yang diatur
--  Mencegah adanya paket tcp syn pada header yang  mengakibatkan suatu koneksi tcp menjadi lama karena melalui 3 langkah(3-way handshake)
--  Menerapkan paket baru yang ditujukan ke port 80(http) akan ditandai dan dipindai apakah paket tersebut mencurigakan atau potensial serangan
--  Menerapkan pemblokiran pada alamat ip yang mencoba terlalu sering mengakses port 80(http) dalam kurun waktu yang diterapkan
 ```bash
-iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP
-
-iptables -A INPUT -p tcp ! --syn -m state --state NEW -j DROP
-
-iptables -I INPUT -p tcp --dport 80 -m state --state NEW -m recent --set
-
-iptables -I INPUT -p tcp --dport 80 -m state --state NEW --state NEW -m recent --update --seconds 10 --hitcount 200 -j DROP
+...
+http {
+    ...
+    server_names_hash_bucket_size 64;
+    ...
+}
+...
 ```
-
-simpan konfigurasi dan jalankan konfigurasi tersebut
+#test nginx dengan perintah
 ```bash
-sudo ln -s /etc/nginx/sites-available/scrsrv.my.id.conf /etc/nginx/sites-enabled/scrsrv.my.id.conf
-
-#Verifikasi konfigurasi nginx
 sudo nginx -t
-
-#jika muncul test is successful berarti tidak ada kendala dalam konfigurasi nginx
-
-#restart nginx
+```
+#bila semua berjalan lancar, maka silahkan restart nginx
+```bash
 sudo systemctl restart nginx
 ```
