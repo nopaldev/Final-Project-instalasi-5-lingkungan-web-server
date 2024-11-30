@@ -57,17 +57,19 @@ sudo ufw status
 sudo mkdir -p /var/www/naufalserver/html
 sudo chown -R $USER:$USER /var/www/naufalserver/html
 sudo chmod -R 755 /var/www/naufalserver
+nano /var/www/naufalserver/html/index.html
 ```
 #sample html
 ```bash
 <html>
     <head>
-        <title>Welcome to your_domain!</title>
+        <title>Hai, selamat datang di naufalserver</title>
     </head>
     <body>
-        <h1>Success!  The your_domain server block is working!</h1>
+        <h1>walaupun mukaku seperti tytyd, tapi cintaku ke kamu unlimited</h1>
     </body>
 </html>
+
 ```
 ### Konfigurasi NginX
 untuk melakukan konfigurasi menggunakan nano
