@@ -153,4 +153,3 @@ bila semua berjalan lancar, maka silahkan restart nginx
 ```bash
 sudo systemctl restart nginx
 ```
-![download](https://github.com/dword32bit/SysAdmin/assets/114817148/e3318239-a3a4-449d-bd86-79edc65c4b7f)
