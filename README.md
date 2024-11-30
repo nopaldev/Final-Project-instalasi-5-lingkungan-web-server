@@ -5,8 +5,10 @@ NAUFAL SADAM SUNU ISKANDAR (23.83.0952) 23 TK 01
 
 # SERVER
 - Nginx web server
-- Squid Server
-- Load Balancer Haproxy
+- Apache
+- Caddy
+- Node js
+- Tomcat
 
 # Operating System
 Ubuntu server 22.04.5 https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.iso
