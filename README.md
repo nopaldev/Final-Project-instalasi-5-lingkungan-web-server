@@ -125,11 +125,11 @@ server {
         }
 
 ```
-#menjalankan file dengan membuat link di sites-enabled
+menjalankan file dengan membuat link di sites-enabled
 ```bash
-sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/naufalserver /etc/nginx/sites-enabled/
 ```
-#edit kofigurasi pada /etc/nginx/nginx.conf
+edit kofigurasi pada /etc/nginx/nginx.conf
 ```bash
 sudo nano /etc/nginx/nginx.conf
 ```
@@ -142,11 +142,11 @@ http {
 }
 ...
 ```
-#test nginx dengan perintah
+test nginx dengan perintah
 ```bash
 sudo nginx -t
 ```
-#bila semua berjalan lancar, maka silahkan restart nginx
+bila semua berjalan lancar, maka silahkan restart nginx
 ```bash
 sudo systemctl restart nginx
 ```
