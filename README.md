@@ -5,6 +5,7 @@ NAUFAL SADAM SUNU ISKANDAR (23.83.0952) 23 TK 01
 
 # SERVER
 - Nginx web server
+- Squid Server
 - Load Balancer Haproxy
 
 # Operating System
@@ -150,3 +151,4 @@ bila semua berjalan lancar, maka silahkan restart nginx
 ```bash
 sudo systemctl restart nginx
 ```
+![download](https://github.com/dword32bit/SysAdmin/assets/114817148/e3318239-a3a4-449d-bd86-79edc65c4b7f)
