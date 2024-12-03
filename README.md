@@ -13,9 +13,7 @@ Ubuntu server 22.04.5 https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-a
 ```bash
 sudo apt-get update
 sudo apt-get install openssh-server
-# konfigurasi sshd.conf
-# hilangkan tanda (#) pada :
-Port 1515
+
 PermitRootLogin prohibit-password
 # izinkan SSH untuk melewati firewall
 sudo ufw allow ssh
