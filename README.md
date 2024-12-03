@@ -5,11 +5,15 @@ NAUFAL SADAM SUNU ISKANDAR (23.83.0952) 23 TK 01
 
 # SERVER
 - Nginx web server
+- ssh 
+- Nginx amplify 
+- Mysql database
+- cloudflare
 
 # Operating System
 Ubuntu server 22.04.5 https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.iso
 
-### Install SSH di Ubuntu 20.04
+# Install SSH di Ubuntu 20.04
 ```bash
 sudo apt-get update
 sudo apt-get install openssh-server
