@@ -241,6 +241,7 @@ nano /var/www/naufalserver/html/index.html
 
 
 ```
+![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/samplehtml.png)
 ### Konfigurasi NginX
 untuk melakukan konfigurasi menggunakan nano
 ```bash
@@ -391,8 +392,10 @@ Success.
 All done!
 
 ```
+![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/ssmysql.png)
 # Instalasi php
-![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/MySQL-Logo.jpeg)
+![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/php.png)
+cara menginstall php untuk webserver nginx sedikit berbeda, perintah seperti di bawah:
 ```bash
 sudo apt-get install php-fpm php-mysql
 
