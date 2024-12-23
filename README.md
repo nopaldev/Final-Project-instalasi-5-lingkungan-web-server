@@ -26,7 +26,7 @@ SSH sudah terinstall, anda bisa menggunakan nya pada cmd/terminal
 menggunakan command :
 
 > ssh user@ip_address
-
+![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/webku.png)
 # Install Apache2 web-server
 ![download](https://raw.githubusercontent.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/refs/heads/main/Foto%20Instalasi/Apache_img.png)
 
@@ -118,7 +118,7 @@ sudo apt-get install php-fpm php-mysql
 ```
 
 
-### 4. Instal Framework Flask
+# Instal Framework Flask
 
 ![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Instalasi/flask1.png?raw=true)
 
@@ -126,7 +126,7 @@ sudo apt-get install php-fpm php-mysql
 pip3 install flask
 ```
 
-### 5. Instal Gunicorn
+# Instal Gunicorn
 
 ![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Instalasi/Gunicorn.jpeg?raw=true)
 
@@ -135,17 +135,8 @@ pip3 install flask
 pip3 install gunicorn
 ```
 
-### 6. Instal dan Konfigurasi SSH Server
-```bash
-sudo apt install openssh-server -y
-```
-- Aktifkan dan mulai SSH:
-```bash
-sudo systemctl enable ssh
-sudo systemctl start ssh
-```
 
-### 7. Konfigurasi Aplikasi Flask
+# Konfigurasi Aplikasi Flask
 - Buat direktori untuk aplikasi Flask Anda:
 ```bash
 mkdir ~/my_flask_app
@@ -165,12 +156,12 @@ if __name__ == "__main__":
     app.run()
 ```
 
-### 8. Jalankan Flask dengan Gunicorn
+# Jalankan Flask dengan Gunicorn
 ```bash
 gunicorn --bind 0.0.0.0:8000 app:app
 ```
 
-### 9. Konfigurasi Apache untuk Meneruskan Permintaan ke Gunicorn
+# Konfigurasi Apache untuk Meneruskan Permintaan ke Gunicorn
 - Aktifkan modul Apache yang diperlukan:
 ```bash
 sudo a2enmod proxy proxy_http
@@ -198,7 +189,7 @@ sudo a2ensite my_flask_app
 sudo systemctl restart apache2
 ```
 
-### 10. Uji Pengaturan
+# Uji Pengaturan
 - Buka browser dan akses `http://<ip-server-anda>`.
 - Anda seharusnya melihat pesan "Hello, World!" ditampilkan.
 
@@ -212,4 +203,12 @@ sudo systemctl restart apache2
 ## Taruh di Cloudflare
 sangkutkan web lokal ke cloudflare agar akses rendering lebih cepat dan ada fitur anti serangan ddos maupun brutforce
 
-![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/Picture.png)
+![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/cldflr.png)
+```bash
+
+curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && 
+
+sudo dpkg -i cloudflared.deb && 
+
+sudo cloudflared service install eyJhIjoiNGE0M2M3YzQ1Mjc4MmVkNTA1MWEzYjFmMTdjMDJlM2EiLCJ0IjoiZjliZGE1ZjYtOWY0OS00OTMyLTk2N2ItMmYzZmUyMDUxZGRmIiwicyI6Ik9EQXdZelV6TjJZdE16ZzJNeTAwTW1FM0xUazJZVGN0T1RjNE5UYzNOREZpTlRWaSJ9
+```
