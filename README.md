@@ -27,17 +27,18 @@ menggunakan command :
 
 > ssh user@ip_address
 
-# Install NginX web-server
-![download](https://github.com/dword32bit/SysAdmin/assets/114817148/e3318239-a3a4-449d-bd86-79edc65c4b7f)
+# Install Apache2 web-server
+![download](https://raw.githubusercontent.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/refs/heads/main/Foto%20Instalasi/Apache_img.png)
 
 Saya menggunakan NginX untuk mengelola Web saya yang berada dalam dua sistem operasi yang terpisah dengan server
 
 ```bash
 #Installasi NginX
-sudo apt install nginx
+sudo apt install apache2 -y
 
-#Periksa status NginX
-sudo systemctl status nginx
+
+#Periksa status apache2
+sudo systemctl status apache2
 ```
 ![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/status_nginx.png)
 ### Melihat paket Nginx
