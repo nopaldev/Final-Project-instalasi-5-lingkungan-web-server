@@ -8,7 +8,7 @@ NAUFAL SADAM SUNU ISKANDAR (23.83.0952) 23 TK 01
 - Nginx web server
 - Database Mysql
 - php
-- cloudflare
+- CDN cloudflare
 
 # Operating System
 Ubuntu server 22.04.5 https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.iso
@@ -400,3 +400,10 @@ cara menginstall php untuk webserver nginx sedikit berbeda, perintah seperti di 
 sudo apt-get install php-fpm php-mysql
 
 ```
+
+
+
+## Taruh di Cloudflare
+sangkutkan web lokal ke cloudflare agar akses rendering lebih cepat dan ada fitur anti serangan ddos maupun brutforce
+
+![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/php.png)
