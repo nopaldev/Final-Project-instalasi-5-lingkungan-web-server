@@ -30,301 +30,16 @@ menggunakan command :
 # Install Apache2 web-server
 ![download](https://raw.githubusercontent.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/refs/heads/main/Foto%20Instalasi/Apache_img.png)
 
-Saya menggunakan NginX untuk mengelola Web saya yang berada dalam dua sistem operasi yang terpisah dengan server
 
 ```bash
-#Installasi NginX
 sudo apt install apache2 -y
-
-
-#Periksa status apache2
-sudo systemctl status apache2
 ```
-![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/status_nginx.png)
-### Melihat paket Nginx
+- Aktifkan dan mulai Apache:
 ```bash
-sudo ufw app list
+sudo systemctl enable apache2
+sudo systemctl start apache2
 ```
-### Mengijinkan http Nginx
-```bash
-sudo ufw allow 'Nginx HTTP'
-```
-### cek ufw status
-```bash
-sudo ufw status
-```
-### seting server blocks
-```bash
-sudo mkdir -p /var/www/naufalserver/html
-sudo chown -R $USER:$USER /var/www/naufalserver/html
-sudo chmod -R 755 /var/www/naufalserver
-nano /var/www/naufalserver/html/index.html
-```
-#sample html
-```bash
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopEase - Jual Beli Barang</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
 
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        header nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-
-        header nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(to right, #4caf50, #81c784);
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .hero h2 {
-            font-size: 2.5em;
-        }
-
-        .hero .btn {
-            background: #333;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            display: inline-block;
-        }
-
-        .hero .btn:hover {
-            background: #555;
-        }
-
-        /* Products Section */
-        .products {
-            padding: 20px;
-            background: #f4f4f4;
-            text-align: center;
-        }
-
-        .products h2 {
-            margin-bottom: 20px;
-        }
-
-        .product-list {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .product-card {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            width: 200px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-card img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-
-        .product-card h3 {
-            margin: 10px 0;
-        }
-
-        .product-card button {
-            background: #4caf50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .product-card button:hover {
-            background: #45a049;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Hello Admin</h1>
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#products">Products</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <section id="home" class="hero">
-        <h2>Temukan Barang Impianmu dengan Mudah</h2>
-        <p>Platform terbaik untuk membeli dan menjual barang kebutuhan sehari-hari!</p>
-        <a href="#products" class="btn">Lihat Produk</a>
-    </section>
-
-    <section id="products" class="products">
-        <h2>Produk Terlaris</h2>
-        <div class="product-list">
-            <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="Produk 1">
-                <h3>Alat Anu</h3>
-                <p>Harga: Rp 3,000,000</p>
-                <button>Beli Sekarang</button>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="Produk 2">
-                <h3>ANU ANU ANU</h3>
-                <p>Harga: Rp 8,000,000</p>
-                <button>Beli Sekarang</button>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="Produk 3">
-                <h3>nah kalo ini anu aja</h3>
-                <p>Harga: Rp 500,000</p>
-                <button>Beli Sekarang</button>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Nopal Store. All rights reserved.</p>
-    </footer>
-</body>
-</html>
-
-
-```
-![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/samplehtml.png)
-### Konfigurasi NginX
-untuk melakukan konfigurasi menggunakan nano
-```bash
-sudo nano /etc/nginx/sites-available/naufalserver
-```
-```bash
-server {
-        listen 80;
-        listen [::]:80;
-
-        # SSL configuration
-        #
-        # listen 443 ssl default_server;
-        # listen [::]:443 ssl default_server;
-        #
-        # Note: You should disable gzip for SSL traffic.
-        # See: https://bugs.debian.org/773332
-        #
-        # Read up on ssl_ciphers to ensure a secure configuration.
-        # See: https://bugs.debian.org/765782
-        #
-        # Self signed certs generated by the ssl-cert package
-        # Don't use them in a production server!
-        #
-        # include snippets/snakeoil.conf;
-
-        root /var/www/naufalserer/html;
-
-        # Add index.php to the list if you are using PHP
-         index index.html index.htm index.nginx-debian.html;
-
-        server_name naufalserver.my.id www.naufalserver.my.id;
-
-        location / {
-                # First attempt to serve request as file, then
-                # as directory, then fall back to displaying a 404.
-                try_files $uri $uri/ =404;
-        }
-        error_log /var/log/nginx/error.log;
-        access_log /var/log/nginx/access.log;
-        # pass PHP scripts to FastCGI server
-        #
-        #location ~ \.php$ {
-        #       include snippets/fastcgi-php.conf;
-        #
-        #       # With php-fpm (or other unix sockets):
-        #       fastcgi_pass unix:/run/php/php7.4-fpm.sock;
-        #       # With php-cgi (or other tcp sockets):
-        #       fastcgi_pass 127.0.0.1:9000;
-        #}
-
-        # deny access to .htaccess files, if Apache's document root
-        # concurs with nginx's one
-        #
-        }
-
-```
-menjalankan file dengan membuat link di sites-enabled
-```bash
-sudo ln -s /etc/nginx/sites-available/naufalserver /etc/nginx/sites-enabled/
-```
-edit kofigurasi pada /etc/nginx/nginx.conf
-```bash
-sudo nano /etc/nginx/nginx.conf
-```
-```bash
-...
-http {
-    ...
-    server_names_hash_bucket_size 64;
-    ...
-}
-...
-```
-test nginx dengan perintah
-```bash
-sudo nginx -t
-```
-bila semua berjalan lancar, maka silahkan restart nginx
-```bash
-sudo systemctl restart nginx
-```
 # Instalasi database Mysql
 ![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/MySQL-Logo.jpeg)
 ```bash
@@ -401,6 +116,96 @@ cara menginstall php untuk webserver nginx sedikit berbeda, perintah seperti di 
 sudo apt-get install php-fpm php-mysql
 
 ```
+
+
+### 4. Instal Framework Flask
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Instalasi/flask1.png?raw=true)
+
+```bash
+pip3 install flask
+```
+
+### 5. Instal Gunicorn
+
+![alt text](https://github.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/blob/main/Foto%20Instalasi/Gunicorn.jpeg?raw=true)
+
+
+```bash
+pip3 install gunicorn
+```
+
+### 6. Instal dan Konfigurasi SSH Server
+```bash
+sudo apt install openssh-server -y
+```
+- Aktifkan dan mulai SSH:
+```bash
+sudo systemctl enable ssh
+sudo systemctl start ssh
+```
+
+### 7. Konfigurasi Aplikasi Flask
+- Buat direktori untuk aplikasi Flask Anda:
+```bash
+mkdir ~/my_flask_app
+cd ~/my_flask_app
+```
+- Buat file `app.py` sederhana:
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello, World!"
+
+if __name__ == "__main__":
+    app.run()
+```
+
+### 8. Jalankan Flask dengan Gunicorn
+```bash
+gunicorn --bind 0.0.0.0:8000 app:app
+```
+
+### 9. Konfigurasi Apache untuk Meneruskan Permintaan ke Gunicorn
+- Aktifkan modul Apache yang diperlukan:
+```bash
+sudo a2enmod proxy proxy_http
+sudo systemctl restart apache2
+```
+- Buat file konfigurasi Apache untuk aplikasi Flask Anda:
+```bash
+sudo nano /etc/apache2/sites-available/my_flask_app.conf
+```
+Tambahkan konten berikut:
+```apache
+<VirtualHost *:80>
+    ServerName yourdomain.com
+
+    ProxyPass / http://127.0.0.1:8000/
+    ProxyPassReverse / http://127.0.0.1:8000/
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+- Aktifkan situs dan restart Apache:
+```bash
+sudo a2ensite my_flask_app
+sudo systemctl restart apache2
+```
+
+### 10. Uji Pengaturan
+- Buka browser dan akses `http://<ip-server-anda>`.
+- Anda seharusnya melihat pesan "Hello, World!" ditampilkan.
+
+---
+
+## Langkah Hosting dengan Cloudflare Tunnel
+
 
 
 
