@@ -13,6 +13,9 @@ NAUFAL SADAM SUNU ISKANDAR (23.83.0952) 23 TK 01
 
 # Operating System
 Ubuntu server 22.04.5 https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.iso
+- ram 4gb
+- internal 50gb
+- procc 4 core
 
 # Install SSH di Ubuntu 20.04
 ```bash
