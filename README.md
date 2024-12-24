@@ -5,7 +5,7 @@ NAUFAL SADAM SUNU ISKANDAR (23.83.0952) 23 TK 01
 
 # SERVER
 - ssh
-- Nginx web server
+- apache web server
 - Database Mysql
 - php
 - CDN cloudflare
@@ -195,12 +195,9 @@ sudo systemctl restart apache2
 
 ---
 
-## Langkah Hosting dengan Cloudflare Tunnel
 
 
-
-
-## Taruh di Cloudflare
+# Taruh di Cloudflare
 sangkutkan web lokal ke cloudflare agar akses rendering lebih cepat dan ada fitur anti serangan ddos maupun brutforce
 
 ![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/cldflr.png)
