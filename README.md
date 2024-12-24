@@ -9,6 +9,7 @@ NAUFAL SADAM SUNU ISKANDAR (23.83.0952) 23 TK 01
 - Database Mysql
 - php
 - CDN cloudflare
+- Domain idcloudhost
 
 # Operating System
 Ubuntu server 22.04.5 https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.iso
@@ -26,7 +27,7 @@ SSH sudah terinstall, anda bisa menggunakan nya pada cmd/terminal
 menggunakan command :
 
 > ssh user@ip_address
-![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/webku.png)
+
 # Install Apache2 web-server
 ![download](https://raw.githubusercontent.com/Tuanvallen/FINAL-Projek-OS-Server-Sistem-Admiin/refs/heads/main/Foto%20Instalasi/Apache_img.png)
 
@@ -209,3 +210,10 @@ sudo dpkg -i cloudflared.deb &&
 
 sudo cloudflared service install eyJhIjoiNGE0M2M3YzQ1Mjc4MmVkNTA1MWEzYjFmMTdjMDJlM2EiLCJ0IjoiZjliZGE1ZjYtOWY0OS00OTMyLTk2N2ItMmYzZmUyMDUxZGRmIiwicyI6Ik9EQXdZelV6TjJZdE16ZzJNeTAwTW1FM0xUazJZVGN0T1RjNE5UYzNOREZpTlRWaSJ9
 ```
+
+# sewa domain di idcloud host
+
+![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/idcloudhost.png)
+
+# Hasil akhir
+![download](https://github.com/nopaldev/Final-Project-instalasi-5-lingkungan-web-server/blob/main/webku.png)
